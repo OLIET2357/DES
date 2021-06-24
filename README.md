@@ -20,6 +20,8 @@ Use via CUDA, DO NOT COMPILE "des.cpp" neither "des.hpp", just include "des.cpp"
         return 0;
     }
 
+g++ main.cpp des.cpp
+
 ### Main.cu
     #include "des.cpp"
     int main()
@@ -27,4 +29,6 @@ Use via CUDA, DO NOT COMPILE "des.cpp" neither "des.hpp", just include "des.cpp"
         DES::main();
         return 0;
     }
+
+nvcc Main.cu
 
