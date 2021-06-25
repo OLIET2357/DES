@@ -484,6 +484,8 @@ void main_gpu(){
     std::cout << std::hex << c << std::endl;
 
     std::cout << decrypt_block(c,0) << " should be 0" << std::endl;
+
+    cudaFree(c_dev);
 }
 #endif
 
