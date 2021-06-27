@@ -7,9 +7,9 @@ Full compatibility with CUDA.
 Referred https://qiita.com/arsley/items/d2679f1a7e68d93c8dbe (Japanese)
 
 # USAGE
-Use via C++, compile "des.cpp", and include "des.hpp".
+Use via C++, compile "des.cpp", then include "des.hpp".
 
-Use via CUDA, DO NOT COMPILE "des.cpp" neither "des.hpp", just include "des.cpp".
+Use via CUDA, DO NOT COMPILE neither "des.cpp" nor "des.hpp", just include "des.cpp".
 
 ## Example Code
 ### main.cpp
