@@ -369,7 +369,7 @@ PREFIX void generate_subkeys(uint64_t sk[16],const uint64_t kp){
 #undef G_S_2
 }
 
-PREFIX block_t encrypt_block_with_subkeys_prime(const block_t pp,const uint64_t sk[16]){
+PREFIX block_t encrypt_block_with_subkeys_prime(const uint64_t pp,const uint64_t sk[16]){
     uint32_t l=(pp&0xFFFFFFFF00000000)>>32, r=pp&0x00000000FFFFFFFF, temp;
 	
 #define F(round) temp=r; \
@@ -409,7 +409,7 @@ PREFIX block_t encrypt_block(const block_t p,const block_t k){
 	return encrypt_block_with_subkeys(p,sk);
 }
 
-PREFIX block_t decrypt_block_with_subkeys_prime(const block_t cp,const uint64_t sk[16]){
+PREFIX block_t decrypt_block_with_subkeys_prime(const uint64_t cp,const uint64_t sk[16]){
     uint32_t l=(cp&0xFFFFFFFF00000000)>>32, r=cp&0x00000000FFFFFFFF, temp;
 	
 #define F(round) temp=r; \
