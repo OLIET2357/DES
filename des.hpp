@@ -26,6 +26,8 @@ namespace DES
     PREFIX block_t decrypt_block_with_subkeys_prime(const uint64_t cp, const uint64_t sk[16]);
     PREFIX block_t encrypt_block_with_subkeys(const block_t p, const uint64_t sk[16]);
     PREFIX block_t decrypt_block_with_subkeys(const block_t c, const uint64_t sk[16]);
+    PREFIX block_t encrypt_block_prime(const block_t p, const uint64_t kp);
+    PREFIX block_t decrypt_block_prime(const block_t c, const uint64_t kp);
     PREFIX block_t encrypt_block(const block_t p, const block_t k);
     PREFIX block_t decrypt_block(const block_t c, const block_t k);
     void main();
