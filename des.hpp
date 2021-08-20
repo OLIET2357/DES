@@ -22,8 +22,8 @@ namespace DES
     PREFIX uint32_t f(const uint64_t r, const uint64_t sk);
     PREFIX block_t translocate_IPI(const uint64_t rl);
     PREFIX void generate_subkeys(uint64_t sk[16], const uint64_t kp);
-    PREFIX block_t encrypt_block_with_subkeys_prime(const block_t pp, const uint64_t sk[16]);
-    PREFIX block_t decrypt_block_with_subkeys_prime(const block_t cp, const uint64_t sk[16]);
+    PREFIX block_t encrypt_block_with_subkeys_prime(const uint64_t pp, const uint64_t sk[16]);
+    PREFIX block_t decrypt_block_with_subkeys_prime(const uint64_t cp, const uint64_t sk[16]);
     PREFIX block_t encrypt_block_with_subkeys(const block_t p, const uint64_t sk[16]);
     PREFIX block_t decrypt_block_with_subkeys(const block_t c, const uint64_t sk[16]);
     PREFIX block_t encrypt_block(const block_t p, const block_t k);
