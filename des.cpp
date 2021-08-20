@@ -402,11 +402,15 @@ PREFIX block_t encrypt_block_with_subkeys(const block_t p,const uint64_t sk[16])
     return encrypt_block_with_subkeys_prime(pp,sk);
 }
 
-PREFIX block_t encrypt_block(const block_t p,const block_t k){
+PREFIX block_t encrypt_block_prime(const block_t p,const uint64_t kp){
     uint64_t sk[16];
-	const uint64_t kp=translocate_PC1(k);
 	generate_subkeys(sk,kp);
 	return encrypt_block_with_subkeys(p,sk);
+}
+
+PREFIX block_t encrypt_block(const block_t p,const block_t k){
+	const uint64_t kp=translocate_PC1(k);
+	return encrypt_block_prime(p,kp);
 }
 
 PREFIX block_t decrypt_block_with_subkeys_prime(const uint64_t cp,const uint64_t sk[16]){
@@ -443,11 +447,15 @@ PREFIX block_t decrypt_block_with_subkeys(const block_t c,const uint64_t sk[16])
 }
 
 
+PREFIX block_t decrypt_block_prime(const block_t c, const uint64_t kp) {
+	uint64_t sk[16];
+	generate_subkeys(sk, kp);
+	return decrypt_block_with_subkeys(c, sk);
+}
+
 PREFIX block_t decrypt_block(const block_t c,const block_t k){
-    uint64_t sk[16];
 	const uint64_t kp=translocate_PC1(k);
-	generate_subkeys(sk,kp);
-	return decrypt_block_with_subkeys(c,sk);
+	return decrypt_block_prime(c,kp);
 }
 
 #ifndef __CUDACC__
